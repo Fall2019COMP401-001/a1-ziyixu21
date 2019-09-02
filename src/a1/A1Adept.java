@@ -13,97 +13,123 @@ public class A1Adept {
 		
 		int numberofitems= scan.nextInt();
 		int size=numberofitems;
-		double s=0;
-		double b=0;
+		
+		//biggest and smallest spend 
+		double min=0;
+		double max=0;
+		//arrays for items'name and price
+		String name[]=new String[size];
+		double price[]=new double[size];
+		
 		
 		for(int i=0; i<numberofitems; i++)
 		{	
-			String name[]=new String[size];
-			name[i] = scan.next();
-			//System.out.println(name);
 			
-			double price[]=new double[size];
+			name[i] = scan.next();		
+			
 			price[i] = scan.nextDouble();
-			//System.out.println(price);
-		}
+		}	
 		
+		
+		
+		
+		//arrays for customers name
 		int customers = scan.nextInt() ;
+		String firstname[]=new String[customers];
+		String lastname[]=new String[customers];
+		//arrays for total price for each customers
+		double total[]=new double[customers];
 		
 		
-		double netprice=0;
-				
+//loop for customers name
+		
 		for(int i=0;i<customers;i++)
 		{	
-			String firstname[]=new String[customers];
 			firstname[i] = scan.next();
 			
-			//System.out.println(firstname);
-			String lastname[]=new String[customers];
 			lastname[i] = scan.next();
-			//System.out.println(lastname);
-			
+
+			//number of items this customer bought
 			int items = scan.nextInt();
-			//System.out.println(items);
-			
-			
-			
-			
-			
-		for(int m=0;m<items;m++)
-		{
+
+			//quantity of each item
 			int quantity[]=new int[items];
-			quantity[m]= scan.nextInt();
-			//System.out.println(quantity);
-			
+			//name of each item
 			String name1[]=new String[size];
-			name1[m] = scan.next();
-			//System.out.println(name);
+			//total money this customer paid
+			double netprice=0;
+			double priceofoneitem=0;
 			
-			for(int l=0; l<size; l++)
+			//loops for items 			
+		    for(int m=0;m<items;m++){	
+			
+			   
+			
+			   quantity[m]= scan.nextInt();
+			
+			   name1[m] = scan.next();		
+			
+               //loop for finding price of one item			
+			   for(int l=0; l<size; l++){
+		             if(name1[m].equals(name[l])){
+		    		     priceofoneitem += price[l]*quantity[m];
+				     }
+			   }
+
+		    }
+		    netprice = priceofoneitem;
+			//System.out.println(netprice);
+			total[i]=netprice;
+			
+		}
+		
+		//loop for finding the max and min
+		
+		int index_max=0;
+		int index_min=0;
+		for(int i=0;i<customers;i++)
+		{
+			if(i==0)
 			{
-		    if(Arrays.Equals(name1[m],name[l]))
+				min=total[i];
+				max=total[i];
 			}
-			
-			int price[m];
-			
-			double priceofthisitem=quantity*price;
-			
-			netprice = netprice + priceofthisitem;
-			
-			
+			else
+			{
+				if(min>total[i])
+				{
+					min=total[i];
+					index_min=i;
+				}
+				else
+				if(max<total[i])
+				{
+					max=total[i];
+					index_max=i;
+				}
+			}
 		}
 		
-		
-		
-		if(s==0&&b==0)
-		{
-			s=netprice;
-			b=netprice;
+		//find the average
+		double sum=0;
+		for(int i=0; i<customers; i++)
+		{			
+			sum=sum+total[i];
 		}
 		
-		if(b>netprice)
-		{
+		double average=sum/customers;
 		
-		}
-		else
-		{
-			b=netprice;
-		}
+		System.out.println("Biggest: "+firstname[index_max]+" "+lastname[index_max]+"("+String.format("%.2f", max)+")");
+		System.out.println("Smallest: "+firstname[index_min]+" "+lastname[index_min]+"("+String.format("%.2f", min)+")");
+		System.out.println("Average: "+String.format("%.2f", average));
+		
+		//System.out.println(firstname[0]);
+		//System.out.println(lastname[0]);
+		//System.out.println(total[0]);
 		
 		
-		if(s<netprice)
-		{
-			s=netprice;
-		}
-		else
-		{
-			
-		}
 		
-			
-		}
 		
-		double average=(b+s)/2;
-		System.out.println("Average: "+average);
-	}
+		
+   }
 }
