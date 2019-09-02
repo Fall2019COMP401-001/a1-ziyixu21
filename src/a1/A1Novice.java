@@ -10,31 +10,43 @@ public class A1Novice {
 
 		// Your code follows here.
 		int customers = scan.nextInt() ;
-		System.out.println(customers);
+		//System.out.println(customers);
 		
-		for(int i=1;i<=customers;i++)
+		for(int i=0;i<customers;i++)
 		{
 			String firstname = scan.next();
-			System.out.println(firstname);
+			//System.out.println(firstname);
 			
 			String lastname = scan.next();
-			System.out.println(lastname);
+			//System.out.println(lastname);
 			
 			int items = scan.nextInt();
-			System.out.println(items);
+			//System.out.println(items);
 			
+			
+			double netprice=0;
+			
+			for(int m=0;m<items;m++)
+			{
 			int quantity = scan.nextInt();
-			System.out.println(quantity);
+			//System.out.println(quantity);
 			
 			String name = scan.next();
-			System.out.println(name);
+			//System.out.println(name);
 			
 			double price = scan.nextDouble();
-			System.out.println(price);
+			//System.out.println(price);
 			
-			char firstletter = firstname.charAt(1);
+			double priceofthisitem=quantity*price;
 			
-			double netprice = quantity*price;
+			netprice = netprice + priceofthisitem;
+			
+			}
+			
+			
+			char firstletter = firstname.charAt(0);
+			
+			
 			
 			System.out.println(firstletter+". "+lastname+": "+netprice);
 						
