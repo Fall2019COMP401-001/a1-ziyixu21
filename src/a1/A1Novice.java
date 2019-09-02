@@ -47,7 +47,7 @@ public class A1Novice {
 			char firstletter = firstname.charAt(0);
 			
 			
-			
+			String.format("%.2f", netprice);
 			System.out.println(firstletter+". "+lastname+": "+netprice);
 						
 		}
