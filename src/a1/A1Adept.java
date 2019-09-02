@@ -119,8 +119,8 @@ public class A1Adept {
 		
 		double average=sum/customers;
 		
-		System.out.println("Biggest: "+firstname[index_max]+" "+lastname[index_max]+"("+String.format("%.2f", max)+")");
-		System.out.println("Smallest: "+firstname[index_min]+" "+lastname[index_min]+"("+String.format("%.2f", min)+")");
+		System.out.println("Biggest: "+firstname[index_max]+" "+lastname[index_max]+" ("+String.format("%.2f", max)+")");
+		System.out.println("Smallest: "+firstname[index_min]+" "+lastname[index_min]+" ("+String.format("%.2f", min)+")");
 		System.out.println("Average: "+String.format("%.2f", average));
 		
 		//System.out.println(firstname[0]);
