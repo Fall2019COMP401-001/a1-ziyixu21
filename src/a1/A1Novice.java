@@ -25,6 +25,7 @@ public class A1Novice {
 			
 			
 			double netprice=0;
+		
 			
 			for(int m=0;m<items;m++)
 			{
@@ -41,14 +42,16 @@ public class A1Novice {
 			
 			netprice = netprice + priceofthisitem;
 			
+	
 			}
 			
 			
 			char firstletter = firstname.charAt(0);
 			
 			
-			String.format("%.2f", netprice);
-			System.out.println(firstletter+". "+lastname+": "+netprice);
+			
+			
+			System.out.println(firstletter+". "+lastname+": "+String.format("%.2f", netprice));
 						
 		}
 		
